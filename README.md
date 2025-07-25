@@ -5,5 +5,5 @@ A Python package to validate CSV files against CDF metadata.
 ## Usage
 
 ```bash
-validate-cdf path/to/example.csv path/to/metadata.json
+validate-cdf --metadata=./cross_cdf/data/metadata_cdf.json --cdf=./cross_cdf/data/cross_scenarios_cdf.csv
 ```
