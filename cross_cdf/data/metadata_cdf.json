@@ -1,0 +1,1453 @@
+{
+  "parameters": {
+    "Socio-economic": {
+      "total_population": {
+        "label": {
+          "EN": "Population",
+          "DE": "Bevölkerung",
+          "FR": "Population"
+        },
+        "description": {
+          "EN": "Total population of the specified region and year, expressed in millions.",
+          "DE": "Gesamtbevölkerung der angegebenen Region und des Jahres, ausgedrückt in Millionen.",
+          "FR": "Population totale de la région et de l'année spécifiées, exprimées par millions."
+        },
+        "constraints": {
+          "minimum": 0
+        },
+        "VariableContext": [
+          ""
+        ],
+        "types": [
+          "number"
+        ],
+        "units": [
+          "Million"
+        ]
+      },
+      "gdp": {
+        "label": {
+          "EN": "GDP",
+          "DE": "BIP",
+          "FR": "PIB"
+        },
+        "description": {
+          "EN": "Gross Domestic Product in billion CHF for the given region and year.",
+          "DE": "Bruttoinlandsprodukt in Milliarde CHF für die gegebene Region und das Jahr.",
+          "FR": "Produit intérieur brut en milliard de CHF pour la région et l'année donnés."
+        },
+        "constraints": {
+          "minimum": 0
+        },
+        "VariableContext": [
+          ""
+        ],
+        "types": [
+          "number"
+        ],
+        "units": [
+          "Billion CHF",
+          "BCHF2017"
+        ]
+      },
+      "total_households": {
+        "label": {
+          "EN": "Number of households",
+          "DE": "Anzahl der Haushalte",
+          "FR": "Nombre de ménages"
+        },
+        "description": {
+          "EN": "Number of households in the region, expressed in millions.",
+          "DE": "Anzahl der Haushalte in der Region, ausgedrückt in Millionen.",
+          "FR": "Nombre de ménages de la région, exprimés en millions."
+        },
+        "constraints": {
+          "minimum": 0
+        },
+        "VariableContext": [
+          ""
+        ],
+        "types": [
+          "number"
+        ],
+        "units": [
+          "Million"
+        ]
+      },
+      "labour_force": {
+        "label": {
+          "EN": "Working population",
+          "DE": "Arbeitsbevölkerung",
+          "FR": "Population active"
+        },
+        "description": {
+          "EN": "Active working population of a region in millions.",
+          "DE": "Aktive Arbeitskräfte einer Region in Millionen.",
+          "FR": "Population active de travail d'une région en millions."
+        },
+        "constraints": {
+          "minimum": 0
+        },
+        "VariableContext": [
+          ""
+        ],
+        "types": [
+          "number"
+        ],
+        "units": [
+          "Million"
+        ]
+      }
+    },
+    "Demand": {
+      "end_use_demand_heat": {
+        "label": {
+          "EN": "End-use demand heat",
+          "DE": "Endverbrauchsnachfrage Hitze",
+          "FR": "Chaleur de demande d'utilisation finale"
+        },
+        "description": {
+          "EN": "End-use demand for heating.",
+          "DE": "Endverbrauchsnachfrage nach Heizung.",
+          "FR": "Demande d'utilisation finale de chauffage."
+        },
+        "constraints": {
+          "minimum": 0
+        },
+        "VariableContext": [
+          "$refs:AllHeatDemandResidential",
+          "$refs:AllHeatDemandCommercial",
+          "$refs:AllHeatDemandIndustrial"
+        ],
+        "types": [
+          "number"
+        ],
+        "units": [
+          "TWh/year"
+        ]
+      },
+      "end_use_demand_passenger": {
+        "label": {
+          "EN": "End-use demand passenger",
+          "DE": "Endverbrauchsnachfrage Passagier",
+          "FR": "Passager de demande d'utilisation finale"
+        },
+        "description": {
+          "EN": "End-use demand for passenger transport.",
+          "DE": "Endverbrauchsnachfrage nach Passagiertransport.",
+          "FR": "Demande d'utilisation finale de transport de passagers."
+        },
+        "constraints": {
+          "minimum": 0
+        },
+        "VariableContext": [
+          "transport|passenger",
+          "transport|passenger|motorized",
+          "transport|passenger|buses",
+          "transport|passenger|slow",
+          "transport|passenger|rail"
+        ],
+        "types": [
+          "number"
+        ],
+        "units": [
+          "Bpkm/year"
+        ]
+      },
+      "end_use_demand_freight": {
+        "label": {
+          "EN": "End-use demand freight",
+          "DE": "Endverbrauchsnachfrage Fracht",
+          "FR": "Freight de demande d'utilisation finale"
+        },
+        "description": {
+          "EN": "End-use demand for freight transport.",
+          "DE": "Endverbrauchsnachfrage nach Frachttransport.",
+          "FR": "Demande d'utilisation finale de transport de fret."
+        },
+        "constraints": {
+          "minimum": 0
+        },
+        "VariableContext": [
+          "transport|freight",
+          "transport|freight|road",
+          "transport|freight|rail"
+        ],
+        "types": [
+          "number"
+        ],
+        "units": [
+          "Btkm/year"
+        ]
+      },
+      "final_demand": {
+        "label": {
+          "EN": "Final Demand",
+          "DE": "Endnachfrage",
+          "FR": "Demande finale"
+        },
+        "description": {
+          "EN": "Final energy consumption.",
+          "DE": "Endgültiger Energieverbrauch.",
+          "FR": "Consommation d'énergie finale."
+        },
+        "constraints": {
+          "minimum": 0
+        },
+        "VariableContext": [
+          "electric_appliances",
+          "residential|electric_appliances",
+          "commercial|electric_appliances",
+          "industrial|electric_appliances",
+          "space_heating",
+          "residential|space_heating",
+          "commercial|space_heating",
+          "industrial|space_heating",
+          "residential|warm_water",
+          "residential|warm_water",
+          "commercial|warm_water",
+          "industrial|warm_water",
+          "transport",
+          "transport|aviation",
+          "transport|sustainable_aviation",
+          "electrolysis"
+        ],
+        "types": [
+          "number"
+        ],
+        "units": [
+          "TWh/year"
+        ]
+      },
+      "energy_reference_area": {
+        "label": {
+          "EN": "Energy Reference Area",
+          "DE": "Energiereferenzbereich",
+          "FR": "Zone de référence énergétique"
+        },
+        "description": {
+          "EN": "Total usable floor area for energy demand calculations, in million square meters.",
+          "DE": "Gesamtumnutzungsgebiet für Energiebedarfsberechnungen auf Millionen Quadratmetern.",
+          "FR": "Zone d'étage utilisable totale pour les calculs de la demande d'énergie, en millions de mètres carrés."
+        },
+        "constraints": {
+          "minimum": 0
+        },
+        "VariableContext": [
+          "residential",
+          "commercial",
+          "industrial",
+          "$refs:AllBuildingStock"
+        ],
+        "types": [
+          "number"
+        ],
+        "units": [
+          "Mm2"
+        ]
+      },
+      "specific_end_use_demand": {
+        "label": {
+          "EN": "Specific end-use demand",
+          "DE": "Spezifische Endverbrauchsnachfrage",
+          "FR": "Demande d'utilisation finale spécifique"
+        },
+        "description": {
+          "EN": "Energy demand per unit area per year (kWh/m²/year).",
+          "DE": "Energiebedarf pro Fläche von Einheiten und Jahr (kWh/m²/Jahr).",
+          "FR": "Demande d'énergie par unité de zone par an (kWh / m² / an)."
+        },
+        "constraints": {
+          "minimum": 0
+        },
+        "VariableContext": [
+          ""
+        ],
+        "types": [
+          "number"
+        ],
+        "units": [
+          "kWh/m2/year"
+        ]
+      },
+      "final_demand_profile": {
+        "label": {
+          "EN": "Final demand normalized profile",
+          "DE": "Endbedarf normalisierte Profil",
+          "FR": "Profil normalisé de la demande finale"
+        },
+        "description": {
+          "EN": "Identifier for the normalized time series profile of fineal energy demand which sums to one over the year.",
+          "DE": "Kennung für das normalisierte Zeitreihenprofil des feinen Energiebedarfs, der im Laufe des Jahres eins ist.",
+          "FR": "Identifiant pour le profil de séries chronologiques normalisé de la demande d'énergie FINEAL qui résume à un au cours de l'année."
+        },
+        "constraints": {},
+        "VariableContext": [
+          "electric_appliances",
+          "residential|electric_appliances",
+          "commercial|electric_appliances",
+          "industrial|electric_appliances",
+          "space_heating",
+          "residential|space_heating",
+          "commercial|space_heating",
+          "industrial|space_heating",
+          "residential|warm_water",
+          "residential|warm_water",
+          "commercial|warm_water",
+          "industrial|warm_water",
+          "transport",
+          "transport|aviation",
+          "transport|sustainable_aviation",
+          "electrolysis"
+        ],
+        "types": [
+          "string"
+        ],
+        "units": [
+          ""
+        ]
+      },
+      "end_use_demand_heating_profile": {
+        "label": {
+          "EN": "End-use demand heating profile",
+          "DE": "Heizungsprofil des Endverbrauchsbedarfs",
+          "FR": "Profil de chauffage de la demande d'utilisation finale"
+        },
+        "description": {
+          "EN": "Identifier for the time series profile of energy demand which sums to one over the year.",
+          "DE": "Kennung für das Zeitreihenprofil des Energiebedarfs.",
+          "FR": "Identifiant pour le profil de série chronologique de la demande d'énergie."
+        },
+        "constraints": {},
+        "VariableContext": [
+          "space_heating",
+          "residential|space_heating",
+          "commercial|space_heating",
+          "industrial|space_heating",
+          "warm_water",
+          "residential|warm_water",
+          "commercial|warm_water",
+          "industrial|warm_water"
+        ],
+        "types": [
+          "string"
+        ],
+        "units": [
+          "GW"
+        ]
+      },
+      "end_use_demand_electricity_profile": {
+        "label": {
+          "EN": "End use demand electricity profile",
+          "DE": "Endverwendung Bedarf Elektrizitätsprofil",
+          "FR": "Utilisation finale Demande de profil d'électricité"
+        },
+        "description": {
+          "EN": "Identifier for the time series profile of energy demand.",
+          "DE": "Kennung für das Zeitreihenprofil des Energiebedarfs.",
+          "FR": "Identifiant pour le profil de série chronologique de la demande d'énergie."
+        },
+        "constraints": {},
+        "VariableContext": [
+          "electric_appliances",
+          "residential|electric_appliances",
+          "commercial|electric_appliances",
+          "industrial|electric_appliances"
+        ],
+        "types": [
+          "string"
+        ],
+        "units": [
+          "GW"
+        ]
+      }
+    },
+    "Resources,Fuels and Carriers": {
+      "theoratical_resource_potential": {
+        "label": {
+          "EN": "Theoratical resource potential",
+          "DE": "Theoretisches Ressourcenpotential",
+          "FR": "Potentiel de ressources théoriques"
+        },
+        "description": {
+          "EN": "Theoratical available resource potential in a region.",
+          "DE": "Theoretisches verfügbares Ressourcenpotential in einer Region.",
+          "FR": "Potentiel de ressources théorique disponible dans une région."
+        },
+        "constraints": {
+          "minimum": 0
+        },
+        "VariableContext": [
+          "$refs:AllGenNonDispatchable"
+        ],
+        "types": [
+          "number"
+        ],
+        "units": [
+          "$refs:unitsEnergyPerYear"
+        ]
+      },
+      "theoratical_resource_availability_profile": {
+        "label": {
+          "EN": "Theoratical resource availability profile",
+          "DE": "Theoretische Ressourcenverfügbarkeitsprofil",
+          "FR": "Profil de disponibilité des ressources théoriques"
+        },
+        "description": {
+          "EN": "Time series identifier for theoratical resource availability profile.",
+          "DE": "Zeitreihenkennung für theoratische Ressourcenverfügbarkeitsprofil.",
+          "FR": "Identificateur de séries chronologiques pour le profil de disponibilité des ressources théoriques."
+        },
+        "constraints": {},
+        "VariableContext": [
+          "$refs:AllGenNonDispatchable"
+        ],
+        "types": [
+          "string"
+        ],
+        "units": [
+          "GW"
+        ]
+      },
+      "energy_import_price": {
+        "label": {
+          "EN": "Import price",
+          "DE": "Importpreis",
+          "FR": "Prix d'importation"
+        },
+        "description": {
+          "EN": "Cost to import energy carriers or fuels.",
+          "DE": "Kosten für den Import von Energieträgern oder Kraftstoffen.",
+          "FR": "Coût pour importer des transporteurs d'énergie ou des carburants."
+        },
+        "constraints": {
+          "minimum": 0
+        },
+        "VariableContext": [
+          "$refs:AllFuels"
+        ],
+        "types": [
+          "number"
+        ],
+        "units": [
+          "Euro/MWh",
+          "CHF/MWh",
+          "CHF/GJ",
+          "USD2020/GJ"
+        ]
+      },
+      "energy_import_price_profile": {
+        "label": {
+          "EN": "Import price profile",
+          "DE": "Preisprofil importieren",
+          "FR": "Profil des prix d'importation"
+        },
+        "description": {
+          "EN": "Time series identifier for variable import prices.",
+          "DE": "Zeitreihenkennung für variable Importpreise.",
+          "FR": "Identificateur de séries chronologiques pour les prix d'importation variables."
+        },
+        "constraints": {},
+        "VariableContext": [
+          "electricity"
+        ],
+        "types": [
+          "string"
+        ],
+        "units": [
+          "CHF/MWh"
+        ]
+      },
+      "co2_price": {
+        "label": {
+          "EN": "Emission Cost",
+          "DE": "Emissionskosten",
+          "FR": "Coût des émissions"
+        },
+        "description": {
+          "EN": "The monetary cost associated with greenhouse gas emissions produced during a specific activity, process, or time period. This value reflects the environmental impact in financial terms, typically calculated using a carbon pricing model (e.g., cost per ton of CO2-equivalent emissions).",
+          "DE": "Die mit Treibhausgasemissionen verbundenen Geldkosten, die während einer bestimmten Aktivität, eines bestimmten Zeitraums oder eines bestimmten Zeitraums erzeugt werden.Dieser Wert spiegelt die Umweltauswirkungen in finanziellen Begriffen wider, die typischerweise mit einem Kohlenstoffpreismodell berechnet werden (z. B. Kosten pro Tonne CO2-äquivalenter Emissionen).",
+          "FR": "Le coût monétaire associé aux émissions de gaz à effet de serre produites au cours d'une activité, d'un processus ou d'une période spécifiques.Cette valeur reflète l'impact environnemental en termes financiers, généralement calculé à l'aide d'un modèle de tarification du carbone (par exemple, coût par tonne d'émissions équivalentes au CO2)."
+        },
+        "constraints": {
+          "minimum": 0
+        },
+        "VariableContext": [
+          "co2"
+        ],
+        "types": [
+          "number"
+        ],
+        "units": [
+          "CHF/tCO2",
+          "Euro/tCO2"
+        ]
+      }
+    },
+    "Policy and Targets": {
+      "max_import_limit": {
+        "label": {
+          "EN": "Import limits",
+          "DE": "Einfuhrgrenzen",
+          "FR": "Limites d'importation"
+        },
+        "description": {
+          "EN": "Maximum allowable import limits for a given resource or fuel.",
+          "DE": "Maximal zulässige Einfuhrgrenzen für eine bestimmte Ressource oder einen bestimmten Kraftstoff.",
+          "FR": "Limites d'importation maximales autorisées pour une ressource ou un carburant donné."
+        },
+        "constraints": {
+          "minimum": 0
+        },
+        "VariableContext": [
+          "biofuels",
+          "biomass",
+          "syntheticfuels",
+          "hydrogen"
+        ],
+        "types": [
+          "$defs:MinMax",
+          "number"
+        ],
+        "units": [
+          "$refs:unitsEnergyPerYear"
+        ]
+      },
+      "co2_removal": {
+        "label": {
+          "EN": "Carbon removal",
+          "DE": "Kohlenstoffentfernung",
+          "FR": "Élimination du carbone"
+        },
+        "description": {
+          "EN": "Total CO₂ removal from the atmosphere, may include uncertainty bounds.",
+          "DE": "Die gesamte CO₂ -Entfernung aus der Atmosphäre kann Unsicherheitsgrenzen umfassen.",
+          "FR": "L'élimination totale du CO₂ de l'atmosphère peut inclure des limites d'incertitude."
+        },
+        "constraints": {
+          "minimum": -100000
+        },
+        "VariableContext": [
+          "emissions"
+        ],
+        "types": [
+          "$defs:MinMax",
+          "number"
+        ],
+        "units": [
+          "MtCO2"
+        ]
+      }
+    },
+    "Assets": {
+      "technology_availability_year": {
+        "label": {
+          "EN": "Technology availability year",
+          "DE": "Technologieverfügbarkeitsjahr",
+          "FR": "Année de disponibilité technologique"
+        },
+        "description": {
+          "EN": "Year when the technology becomes available for deployment.",
+          "DE": "Jahr, in dem die Technologie für den Einsatz verfügbar ist.",
+          "FR": "Année où la technologie devient disponible pour le déploiement."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "year"
+        ],
+        "VariableContext": [
+          "$refs:AllGenDispatchable",
+          "$refs:AllGenNonDispatchable"
+        ]
+      },
+      "decommissioning_cost": {
+        "label": {
+          "EN": "Decommissioning cost",
+          "DE": "Stilllegungkosten",
+          "FR": "Coût de déclassement"
+        },
+        "description": {
+          "EN": "Cost for dismantling and site restoration per capacity unit.",
+          "DE": "Kosten für Abbau und Standortwiederherstellung pro Kapazitätseinheit.",
+          "FR": "Coût pour le démantèlement et la restauration du site par capacité."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "CHF/kW"
+        ],
+        "VariableContext": [
+          "generation|solar_pv",
+          "generation|gas_turbine",
+          "generation|wind_onshore",
+          "generation|hydro",
+          "generation|coal",
+          "generation|nuclear",
+          "storage|battery",
+          "storage|pump_hydro",
+          "conversion|electrolyzer",
+          "conversion|methanation"
+        ]
+      },
+      "installed_generation_capacity": {
+        "label": {
+          "EN": "Generation Capacity",
+          "DE": "Erzeugungskapazität",
+          "FR": "Capacité de production"
+        },
+        "description": {
+          "EN": "Installed capacity of the generation technology.",
+          "DE": "Installierte Kapazität der Generationstechnologie.",
+          "FR": "Capacité installée de la technologie de génération."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "$refs:unitsPower"
+        ],
+        "VariableContext": [
+          "$refs:AllGenDispatchable",
+          "$refs:AllGenNonDispatchable",
+          "$refs:AllHydro",
+          "$refs:AllStorage",
+          "$refs:AllStorageWithReservoir"
+        ]
+      },
+      "energy_storage_capacity": {
+        "label": {
+          "EN": "Storage Capacity",
+          "DE": "Speicherkapazität",
+          "FR": "Capacité de stockage"
+        },
+        "description": {
+          "EN": "Maximum energy capacity of the storage system.",
+          "DE": "Maximale Energiekapazität des Speichersystems.",
+          "FR": "Capacité énergétique maximale du système de stockage."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "$refs:unitsEnergy"
+        ],
+        "VariableContext": [
+          "$refs:AllStorage",
+          "$refs:AllStorageWithReservoir"
+        ]
+      },
+      "charging_capacity": {
+        "label": {
+          "EN": "Charging Capacity",
+          "DE": "Ladekapazität",
+          "FR": "Capacité de charge"
+        },
+        "description": {
+          "EN": "Maximum power capacity to charge the storage system.",
+          "DE": "Maximale Leistungskapazität zum Laden des Speichersystems.",
+          "FR": "Capacité d'alimentation maximale pour charger le système de stockage."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "$refs:unitsPower"
+        ],
+        "VariableContext": [
+          "$refs:AllStorage"
+        ]
+      },
+      "capital_expenditure": {
+        "label": {
+          "EN": "Capital expenditure",
+          "DE": "Investitionsausgaben",
+          "FR": "Dépenses en capital"
+        },
+        "description": {
+          "EN": "Capital expenditure required to deploy the asset.",
+          "DE": "Investitionsausgaben, die für den Einsatz des Vermögenswerts erforderlich sind.",
+          "FR": "Dépenses en capital requises pour déployer l'actif."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "CHF/kW"
+        ],
+        "VariableContext": [
+          "$refs:AllGenDispatchable",
+          "$refs:AllGenNonDispatchable",
+          "$refs:AllheatingTechnologies",
+          "$refs:AllPassengerTransport",
+          "$refs:AllStorage",
+          "$refs:AllStorageWithReservoir",
+          "$refs:AllConversion"
+        ]
+      },
+      "operating_expenditure": {
+        "label": {
+          "EN": "OPEX",
+          "DE": "Opex",
+          "FR": "Opex"
+        },
+        "description": {
+          "EN": "Operational expenditure of the asset.",
+          "DE": "Betriebsausgaben des Vermögenswerts.",
+          "FR": "Dépenses opérationnelles de l'actif."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "CHF/MWh",
+          "Euro/MWh"
+        ],
+        "VariableContext": [
+          "$refs:AllGenDispatchable",
+          "$refs:AllGenNonDispatchable",
+          "$refs:AllheatingTechnologies",
+          "$refs:AllPassengerTransport",
+          "$refs:AllStorage",
+          "$refs:AllStorageWithReservoir",
+          "$refs:AllConversion"
+        ]
+      },
+      "co2_price": {
+        "label": {
+          "EN": "Emission Cost",
+          "DE": "Emissionskosten",
+          "FR": "Coût des émissions"
+        },
+        "description": {
+          "EN": "Cost associated with emissions from the asset.",
+          "DE": "Kosten im Zusammenhang mit Emissionen aus dem Vermögenswert.",
+          "FR": "Coût associé aux émissions de l'actif."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "CHF/tCO2"
+        ],
+        "VariableContext": [
+          "co2"
+        ]
+      },
+      "inflow_energy": {
+        "label": {
+          "EN": "Inflow Energy",
+          "DE": "Zuflussenergie",
+          "FR": "Énergie"
+        },
+        "description": {
+          "EN": "Annual inflow energy available for hydro systems.",
+          "DE": "Jährliche Zuflussenergie für Hydro -Systeme verfügbar.",
+          "FR": "Énergie d'entrée annuelle disponible pour les systèmes hydroélectriques."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "$refs:unitsEnergyPerYear"
+        ],
+        "VariableContext": [
+          "$refs:AllHydro",
+          "$refs:AllGenNonDispatchable"
+        ]
+      },
+      "inflow_profile": {
+        "label": {
+          "EN": "Normalized Inflow Profile",
+          "DE": "Normalisiertes Zuflussprofil",
+          "FR": "Profil d'entrée normalisé"
+        },
+        "description": {
+          "EN": "Hourly inflow energy profile which sums to one over the year.",
+          "DE": "Stündliche Zufluss -Energieprofil.",
+          "FR": "Profil d'énergie à l'afflux horaire."
+        },
+        "types": [
+          "string"
+        ],
+        "units": [
+          ""
+        ],
+        "VariableContext": [
+          "$refs:AllHydro",
+          "$refs:AllGenNonDispatchable"
+        ]
+      },
+      "capacity_factor": {
+        "label": {
+          "EN": "Capacity factor",
+          "DE": "Kapazitätsfaktor",
+          "FR": "Facteur de capacité"
+        },
+        "description": {
+          "EN": "the ratio of the actual energy produced by a power plant over a given period (usually a year) to the energy the plant would have produced if it operated at its full (rated) capacity for the entire period.",
+          "DE": "Das Verhältnis der tatsächlichen Energie, die durch ein Kraftwerk über einen bestimmten Zeitraum (normalerweise ein Jahr) zu der Energie erzeugt wurde, die die Anlage erzeugt hätte, wenn es für den gesamten Zeitraum in vollem Umfang (bewertet) operiert hätte.",
+          "FR": "Le ratio de l'énergie réelle produite par une centrale électrique sur une période donnée (généralement un an) à l'énergie que l'usine aurait produite si elle fonctionnait à sa capacité complète (évaluée) pendant toute la période."
+        },
+        "types": [
+          "string"
+        ],
+        "units": [
+          ""
+        ],
+        "VariableContext": [
+          "$refs:AllWindPV"
+        ]
+      },
+      "coefficient_of_performance": {
+        "label": {
+          "EN": "COP",
+          "DE": "",
+          "FR": "FLIC"
+        },
+        "description": {
+          "EN": "Coefficient of performance for heat pumps or cooling devices.",
+          "DE": "Leistungskoeffizient für Wärmepumpen oder Kühlgeräte.",
+          "FR": "Coefficient de performance pour les pompes à chaleur ou les dispositifs de refroidissement."
+        },
+        "types": [
+          "number",
+          "$defs:MinMax"
+        ],
+        "units": [],
+        "VariableContext": [
+          "$refs:AllHeatpumpTechnologies"
+        ]
+      },
+      "efficiency": {
+        "label": {
+          "EN": "Efficiency",
+          "DE": "Effizienz",
+          "FR": "Efficacité"
+        },
+        "description": {
+          "EN": "Energy conversion efficiency of the technology.",
+          "DE": "Energieumwandlungseffizienz der Technologie.",
+          "FR": "Efficacité de conversion d'énergie de la technologie."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [],
+        "VariableContext": [
+          "$refs:AllGenDispatchable",
+          "$refs:AllGenNonDispatchable",
+          "$refs:AllheatingTechnologies",
+          "$refs:AllPassengerTransport",
+          "$refs:AllHydro",
+          "$refs:AllStorage",
+          "$refs:AllStorageWithReservoir",
+          "$refs:AllConversion"
+        ]
+      },
+      "charging_efficiency": {
+        "label": {
+          "EN": "Charging Efficiency",
+          "DE": "Ladeeffizienz",
+          "FR": "Efficacité de facturation"
+        },
+        "description": {
+          "EN": "Efficiency of converting input power into stored energy.",
+          "DE": "Effizienz der Umwandlung der Eingangsleistung in gespeicherte Energie.",
+          "FR": "Efficacité de la conversion de la puissance d'entrée en énergie stockée."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [],
+        "VariableContext": [
+          "$refs:AllStorage"
+        ]
+      },
+      "power_flow_n1_to_n2_max": {
+        "label": {
+          "EN": "P12max",
+          "DE": "P12max",
+          "FR": "P12max"
+        },
+        "description": {
+          "EN": "Maximum power flow from node 1 to node 2.",
+          "DE": "Maximaler Leistungsfluss vom Knoten 1 zu Knoten 2.",
+          "FR": "Débit de puissance maximum du nœud 1 au nœud 2."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "$refs:unitsPower"
+        ],
+        "VariableContext": [
+          "connector|ntc"
+        ]
+      },
+      "power_flow_n2_to_n1_max": {
+        "label": {
+          "EN": "P21max",
+          "DE": "P21MAX",
+          "FR": "P21max"
+        },
+        "description": {
+          "EN": "Maximum power flow from node 2 to node 1.",
+          "DE": "Maximaler Leistungsfluss vom Knoten 2 zu Knoten 1.",
+          "FR": "Débit de puissance maximum du nœud 2 au nœud 1."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "$refs:unitsPower"
+        ],
+        "VariableContext": [
+          "transmission|electricity",
+          "connector|ntc"
+        ]
+      },
+      "availability_factor": {
+        "label": {
+          "EN": "Availability factor",
+          "DE": "Verfügbarkeitsfaktor",
+          "FR": "Facteur de disponibilité"
+        },
+        "description": {
+          "EN": "Share of time the technology is available to produce.",
+          "DE": "Zeitanteil der Technologie zur Herstellung zur Verfügung steht.",
+          "FR": "Partage du temps La technologie est disponible pour produire."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "-"
+        ],
+        "VariableContext": [
+          "$refs:AllGenDispatchable",
+          "$refs:AllGenNonDispatchable"
+        ]
+      },
+      "ramp_rate": {
+        "label": {
+          "EN": "Ramp rate",
+          "DE": "Rampenrate",
+          "FR": "Taux de rampe"
+        },
+        "description": {
+          "EN": "Maximum change in output per time unit as a fraction of capacity.",
+          "DE": "Maximale Ausgangsänderung pro Zeiteinheit als Kapazitätsanteil.",
+          "FR": "Changement maximal de la production par unité de temps comme fraction de capacité."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "%/min"
+        ],
+        "VariableContext": [
+          "$refs:AllGenDispatchable",
+          "$refs:AllGenNonDispatchable"
+        ]
+      },
+      "startup_time": {
+        "label": {
+          "EN": "Startup time",
+          "DE": "Startzeit",
+          "FR": "Heure de démarrage"
+        },
+        "description": {
+          "EN": "Time required to start the unit from cold.",
+          "DE": "Zeit erforderlich, um das Gerät vor Kälte zu starten.",
+          "FR": "Temps nécessaire pour démarrer l'unité du froid."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "hours"
+        ],
+        "VariableContext": [
+          "$refs:AllGenDispatchable"
+        ]
+      },
+      "minimum_load": {
+        "label": {
+          "EN": "Minimum load",
+          "DE": "Mindestlast",
+          "FR": "Charge minimale"
+        },
+        "description": {
+          "EN": "Minimum stable generation output as a share of capacity.",
+          "DE": "Minimale stabile Erzeugungsausgabe als Kapazitätsanteil.",
+          "FR": "Sortie de production stable minimale par part de capacité."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "%"
+        ],
+        "VariableContext": [
+          "$refs:AllGenDispatchable"
+        ]
+      },
+      "round_trip_efficiency": {
+        "label": {
+          "EN": "Round-trip efficiency",
+          "DE": "Hin- und Rückfahrt-Effizienz",
+          "FR": "Efficacité aller-retour"
+        },
+        "description": {
+          "EN": "Efficiency of a complete charge-discharge cycle for storage.",
+          "DE": "Effizienz eines vollständigen Zyklus des Ladungspflichts für die Aufbewahrung.",
+          "FR": "Efficacité d'un cycle complet de décharge de charge pour le stockage."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "%"
+        ],
+        "VariableContext": [
+          "$refs:AllStorage"
+        ]
+      },
+      "energy_to_power_ratio": {
+        "label": {
+          "EN": "Energy-to-power ratio",
+          "DE": "Energie-zu-Strom-Verhältnis",
+          "FR": "Rapport énergétique / puissance"
+        },
+        "description": {
+          "EN": "Ratio of energy capacity to power capacity for storage technologies.",
+          "DE": "Verhältnis der Energiekapazität zur Leistungsfähigkeit für Speichertechnologien.",
+          "FR": "Ratio de la capacité énergétique à la capacité d'énergie pour les technologies de stockage."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "hours"
+        ],
+        "VariableContext": [
+          "$refs:AllStorage"
+        ]
+      },
+      "maximum_downwards_ramp_rate": {
+        "label": {
+          "EN": "Maximum Downward Ramp Rate in percentage of the installed power per hour.",
+          "DE": "Maximale Rampenrate nach unten im Prozentsatz der installierten Leistung pro Stunde.",
+          "FR": "Taux de rampe à la baisse maximale en pourcentage de la puissance installée par heure."
+        },
+        "description": {
+          "EN": "The maximum rate at which power output is allowed to decrease, typically measured in units such as in percentage of the installed power per hour. This parameter limits how quickly a generating unit or system can reduce its output to ensure stability and prevent equipment damage.",
+          "DE": "Die maximale Rate, mit der die Leistung abnehmen kann, wird typischerweise in Einheiten gemessen, z. B. im Prozentsatz der installierten Leistung pro Stunde.Dieser Parameter beschränkt, wie schnell ein Erzeugungseinheit oder ein System seine Ausgabe reduzieren kann, um Stabilität zu gewährleisten und die Schäden von Geräten zu verhindern.",
+          "FR": "La vitesse maximale à laquelle la puissance est autorisée à diminuer, généralement mesurée en unités telles que en pourcentage de la puissance installée par heure.Ce paramètre limite la rapidité avec laquelle une unité ou un système de génération peut réduire sa sortie pour garantir la stabilité et prévenir les dommages aux équipements."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "%/h"
+        ],
+        "VariableContext": [
+          "$refs:AllGenDispatchable"
+        ]
+      },
+      "maximum_upwards_ramp_rate": {
+        "label": {
+          "EN": "Maximum Upward Ramp Rate in percentage of the installed power per hour.",
+          "DE": "Maximale Aufwärtsrampenrate im Prozentsatz der installierten Leistung pro Stunde.",
+          "FR": "Taux de rampe à la hausse maximum en pourcentage de la puissance installée par heure."
+        },
+        "description": {
+          "EN": "The maximum rate at which power output is allowed to increase, typically measured in units such as in percentage of the installed power per hour. This parameter limits how quickly a generating unit or system can increase its output to ensure stability and prevent equipment damage.",
+          "DE": "Die maximale Geschwindigkeit, mit der die Leistung erhöht werden kann, wird in Einheiten wie im Prozentsatz der installierten Leistung pro Stunde typischerweise gemessen.Dieser Parameter beschränkt, wie schnell eine Erzeugungseinheit oder ein System seine Ausgabe erhöhen kann, um Stabilität zu gewährleisten und die Schäden von Geräten zu verhindern.",
+          "FR": "La vitesse maximale à laquelle la puissance est autorisée à augmenter, généralement mesurée en unités telles que en pourcentage de la puissance installée par heure.Ce paramètre limite la rapidité avec laquelle une unité ou un système de génération peut augmenter sa sortie pour garantir la stabilité et prévenir les dommages aux équipements."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "%/h"
+        ],
+        "VariableContext": [
+          "$refs:AllGenDispatchable"
+        ]
+      },
+      "downwards_ramp_rate_cost": {
+        "label": {
+          "EN": "Downwards Ramp Rate Cost",
+          "DE": "Nach unten Rampenkosten Kosten",
+          "FR": "Coût du taux de rampe à la baisse"
+        },
+        "description": {
+          "EN": "The cost associated with decreasing the power output of a generator or system per unit of ramp rate. This parameter reflects the economic penalty or operational expense incurred when ramping generation downwards, typically measured in cost per MW/h or a similar unit. Higher values indicate a greater cost for rapid decreases in power output.",
+          "DE": "Die Kosten, die mit der Verringerung der Leistung eines Generators oder eines Systems pro Rampeneinheit verbunden sind.Dieser Parameter spiegelt die wirtschaftliche Strafe oder die Betriebskosten wider, die bei der Abwärtserzeugung entstehen, die typischerweise in den Kosten pro MW/h oder einer ähnlichen Einheit gemessen wurden.Höhere Werte weisen auf größere Kosten für eine schnelle Abnahme der Leistungsabgabe hin.",
+          "FR": "Le coût associé à la diminution de la puissance de puissance d'un générateur ou d'un système par unité de taux de rampe.Ce paramètre reflète la pénalité économique ou les dépenses opérationnelles engagées lors de la génération de rampe à la baisse, généralement mesurée en coût par MW / H ou dans une unité similaire.Des valeurs plus élevées indiquent un coût plus élevé pour des diminutions rapides de la puissance de sortie."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "CHF/MW/h",
+          "Euro/MW/h"
+        ],
+        "VariableContext": [
+          "$refs:AllGenDispatchable"
+        ]
+      },
+      "upwards_ramp_rate_cost": {
+        "label": {
+          "EN": "Upwards Ramp Rate Cost",
+          "DE": "Aufwärtsspannungskosten",
+          "FR": "Coût du taux de rampe supérieur"
+        },
+        "description": {
+          "EN": "The cost associated with increasing the power output of a generator or system per unit of ramp rate. This parameter reflects the economic penalty or operational expense incurred when ramping generation upwards, typically measured in cost per MW/h or a similar unit. Higher values indicate a greater cost for rapid increases in power output.",
+          "DE": "Die Kosten, die mit der Erhöhung der Leistung eines Generators oder eines Systems pro Rampeneinheit verbunden sind.Dieser Parameter spiegelt die wirtschaftliche Strafe oder die Betriebskosten wider, die bei der Erzeugung nach oben entstanden sind und in der Regel mit den Kosten pro MW/h oder einer ähnlichen Einheit gemessen wurden.Höhere Werte weisen auf größere Kosten für eine schnelle Erhöhung der Leistungsleistung hin.",
+          "FR": "Le coût associé à l'augmentation de la puissance de puissance d'un générateur ou d'un système par unité de taux de rampe.Ce paramètre reflète la pénalité économique ou les dépenses opérationnelles engagées lors de la génération de rampe vers le haut, généralement mesurée en coût par MW / H ou dans une unité similaire.Des valeurs plus élevées indiquent un coût plus élevé pour une augmentation rapide de la puissance de sortie."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "CHF/MW/h",
+          "Euro/MW/h"
+        ],
+        "VariableContext": [
+          "$refs:AllGenDispatchable"
+        ]
+      },
+      "co2_intensity": {
+        "label": {
+          "EN": "CO2 Intensity",
+          "DE": "CO2 -Intensität",
+          "FR": "Intensité du CO2"
+        },
+        "description": {
+          "EN": "CO2 intensity measures the amount of carbon dioxide (CO2) emissions produced per unit of energy generated. It is typically expressed in tons of CO₂ per megawatt-hour (tCO₂/MWh) and is used to assess the environmental impact of electricity generation. Lower CO2 intensity indicates cleaner energy sources.",
+          "DE": "Die CO2 -Intensität misst die Menge an Kohlendioxid -Emissionen (CO2), die pro Erzeugungseinheit erzeugt werden.Es wird typischerweise in Tonnen von CO₂ pro Megawattstunde (TCO₂/MWH) ausgedrückt und wird verwendet, um die Umweltauswirkungen der Stromerzeugung zu bewerten.Eine niedrigere CO2 -Intensität zeigt sauberere Energiequellen an.",
+          "FR": "L'intensité du CO2 mesure la quantité d'émissions de dioxyde de carbone (CO2) produites par unité d'énergie générée.Il est généralement exprimé dans des tonnes de co₂ par mégawatt-heure (TCO₂ / MWH) et est utilisé pour évaluer l'impact environnemental de la production d'électricité.Une intensité de CO2 plus faible indique des sources d'énergie plus propres."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "tCO2/MWh"
+        ],
+        "VariableContext": [
+          "$refs:AllGenDispatchable"
+        ]
+      },
+      "annual_energy_potential": {
+        "label": {
+          "EN": "Annual Energy",
+          "DE": "Jährliche Energie",
+          "FR": "Énergie annuelle"
+        },
+        "description": {
+          "EN": "Annual energy that could be extracted from a resource assuming 100% conversion efficiency.",
+          "DE": "Jährliche Energie, die aus einer Ressource extrahiert werden könnte, wobei eine 100% ige Umwandlungseffizienz angenommen wird.",
+          "FR": "Énergie annuelle qui pourrait être extraite d'une ressource en supposant une efficacité de conversion à 100%."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "TWh/year",
+          "PJ/year"
+        ],
+        "VariableContext": [
+          "$refs:AllStorage",
+          "$refs:AllHydro",
+          "$refs:AllGenNonDispatchable"
+        ]
+      }
+    },
+    "Technology": {},
+    "Climate": {
+      "HDD": {
+        "label": {
+          "EN": "Heating Degree Days",
+          "DE": "Heiz-Grad-Tage",
+          "FR": "Days de diplôme de chauffage"
+        },
+        "description": {
+          "EN": "HDD is a measure of how much (and for how long) the outside air temperature was below a certain threshold, typically 18°C (65°F) — the temperature below which buildings usually require heating.",
+          "DE": "HDD ist ein Mass dafür, wie viel (und wie lange) die Aussenlufttemperatur unter einem bestimmten Schwellenwert lag, typischerweise 18 ° C (65 ° F) - die Temperatur, unter der Gebäude normalerweise Erwärmung erfordern.",
+          "FR": "Le disque dur est une mesure de la quantité (et pendant combien de temps) la température de l'air extérieur était inférieure à un certain seuil, généralement 18 ° C (65 ° F) - la température en dessous des bâtiments nécessite généralement un chauffage."
+        },
+        "types": [
+          "number"
+        ],
+        "units": [
+          "degree days"
+        ],
+        "VariableContext": ""
+      }
+    }
+  },
+  "$defs": {
+    "MinMax": {
+      "type": "object",
+      "properties": {
+        "min": {
+          "type": "number"
+        },
+        "max": {
+          "type": "number"
+        }
+      },
+      "required": [
+        "min",
+        "max"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$unitDefs": {
+    "unitsPower": [
+      "kW",
+      "MW",
+      "GW"
+    ],
+    "unitsEnergy": [
+      "kWh",
+      "MWh",
+      "GWh",
+      "TWh"
+    ],
+    "unitsEnergyPerYear": [
+      "kWh/year",
+      "MWh/year",
+      "GWh/year",
+      "TWh/year",
+      "PJ/year"
+    ]
+  },
+  "$contextDefs": {
+    "AllGenDispatchable": [
+      "generation|thermal|nuclear",
+      "generation|thermal|coal",
+      "generation|thermal|gas",
+      "generation|thermal|fossil",
+      "generation|thermal|biomass",
+      "generation|thermal|oil",
+      "generation|hydrogen",
+      "generation|hydrogen|fuelcell",
+      "generation|hydrogen|ccgt",
+      "generation|nonrenewable|others",
+      "demandside",
+      "generation|adequacy"
+    ],
+    "AllGenNonDispatchable": [
+      "generation|renewable|solar|pv",
+      "generation|renewable|solar|pv|rooftop",
+      "generation|renewable|solar|pv|ground",
+      "generation|renewable|solar|pv|facades",
+      "generation|renewable|solar|pv|mountain",
+      "generation|renewable|solar|thermal",
+      "generation|renewable|wind",
+      "generation|renewable|wind|offshore",
+      "generation|renewable|wind|onshore",
+      "generation|renewable|others",
+      "generation|renewable|geothermal"
+    ],
+    "AllStorage": [
+      "storage|hydro|pondage",
+      "storage|hydro|pump",
+      "storage|hydro|pump|open",
+      "storage|hydro|pump|closed",
+      "storage|battery"
+    ],
+    "AllStorageWithReservoir": [
+      "storage|hydro|reservoir"
+    ],
+    "AllConversion": [
+      "conversion|methanation",
+      "conversion|electrolyser"
+    ],
+    "AllHydro": [
+      "storage|hydro|pondage",
+      "storage|hydro|pump",
+      "storage|hydro|pump|open",
+      "storage|hydro|pump|closed",
+      "generation|hydro|run_of_river",
+      "storage|hydro|reservoir"
+    ],
+    "AllWindPV": [
+      "generation|renewable|solar|pv",
+      "generation|renewable|solar|pv|rooftop",
+      "generation|renewable|solar|pv|ground",
+      "generation|renewable|solar|pv|facades",
+      "generation|renewable|solar|pv|mountain",
+      "generation|renewable|solar|thermal",
+      "generation|renewable|wind",
+      "generation|renewable|wind|offshore",
+      "generation|renewable|wind|onshore"
+    ],
+    "AllheatingTechnologies": [
+      "heating|gas_boiler|methane_fired",
+      "heating|gas_boiler|hydrogen_fired"
+    ],
+    "AllHeatpumpTechnologies": [
+      "heating|heat_pump|air_sourced",
+      "heating|heat_pump|ground_sourced"
+    ],
+    "AllPassengerTransport": [
+      "transport|passenger|bev",
+      "transport|passenger|fcev",
+      "transport|passenger|ice"
+    ],
+    "AllDemandSectors": [
+      "residential",
+      "commercial",
+      "industrial",
+      "transport"
+    ],
+    "AllHeatDemandResidential": [
+      "residential|space_heating",
+      "residential|space_cooling",
+      "residential|warm_water",
+      "residential|process_cooling",
+      "residential|process_heating"
+    ],
+    "AllElecDemandResidential": [
+      "residential|electric_appliances"
+    ],
+    "AllHeatDemandCommercial": [
+      "commercial|process_cooling",
+      "commercial|process_heating",
+      "commercial|space_heating",
+      "commercial|space_cooling",
+      "commercial|warm_water"
+    ],
+    "AllElecDemandCommercial": [
+      "commercial|electric_appliances"
+    ],
+    "AllHeatDemandIndustrial": [
+      "industrial|space_heating",
+      "industrial|space_cooling",
+      "industrial|warm_water",
+      "industrial|process_cooling",
+      "industrial|process_heating",
+      "industrial|process_heating_(high_temperatue)",
+      "industrial|process_heating_(low_temperatue)"
+    ],
+    "AllElecDemandIndustrial": [],
+    "AllDemandTransportPassenger": [
+      "transport|passenger|rail",
+      "transport|passenger|road",
+      "transport|passenger|road|public",
+      "transport|passenger|road|public|tram",
+      "transport|passenger|road|public|trolley",
+      "transport|passenger|road|public|bus",
+      "transport|passenger|road|private",
+      "transport|passenger|road|private|passenger_cars",
+      "transport|passenger|road|private|motorcycles",
+      "transport|passenger|road|private|moped_ebike",
+      "transport|passenger|road|private",
+      "transport|passenger|road|private|bike",
+      "transport|passenger|road|private|foot",
+      "transport|passenger|personal_cars",
+      "transport|passenger|busses",
+      "transport|passenger|tram",
+      "transport|passenger|rail",
+      "transport|passenger|aviation"
+    ],
+    "AllDemandTransportFreight": [
+      "transport|freight|heavy_trucks",
+      "transport|freight|heavy_trucks",
+      "transport|freight|light_duty_vehicles",
+      "transport|freight|rail",
+      "transport|freight|shipping",
+      "transport|freight|aviation"
+    ],
+    "AllFuels": [
+      "fossil",
+      "fossil|coal",
+      "fossil|coal|hardcoal",
+      "fossil|coal|lignite",
+      "fossil|gas",
+      "fossil|oil",
+      "fossil|oil|light",
+      "fossil|oil|heavy",
+      "nuclear",
+      "renewable",
+      "renewable|hydro",
+      "renewable|hydro|dam",
+      "renewable|hydro|pump",
+      "renewable|hydro|ror",
+      "renewable|biodiesel",
+      "renewable|biomass",
+      "renewable|biomass|wood",
+      "renewable|biomass|wood|wood_forest",
+      "renewable|biomass|wood|wood_landscape",
+      "renewable|biomass|wood|wood_waste",
+      "renewable|biomass|manure",
+      "renewable|biomass|sewage",
+      "renewable|biomass|sewage|green_waste",
+      "renewable|biomass|sewage|green_waste|organic_waste",
+      "renewable|biomass|sewage|green_waste|agri_byproducts",
+      "renewable_other",
+      "renewable_other|solar",
+      "renewable_other|solar|rooftop",
+      "renewable_other|solar|facade",
+      "renewable_other|wind",
+      "renewable_other|wind|onshore",
+      "renewable_other|wind|offshore",
+      "renewable_other|geothermal",
+      "nonrenewable|others",
+      "waste",
+      "waste|mixed",
+      "electricity",
+      "hydrogen",
+      "methane",
+      "ethanol",
+      "oil",
+      "natural_gas",
+      "biodiesel",
+      "hydrogen",
+      "methane",
+      "uranium",
+      "lng",
+      "waste"
+    ],
+    "AllCarriers": [
+      "solar",
+      "hydro_inflow",
+      "wind",
+      "biomass",
+      "wood",
+      "municipal_solid_waste",
+      "biodiversity"
+    ],
+    "AllBuildingStock": [
+      "residential|building|mfh|<1920",
+      "residential|building|mfh|1920-1945",
+      "residential|building|mfh|1946-1960",
+      "residential|building|mfh|1961-1970",
+      "residential|building|mfh|1971-1980",
+      "residential|building|mfh|1981-1990",
+      "residential|building|mfh|1991-2000",
+      "residential|building|mfh|2001-2010",
+      "residential|building|mfh|2011-2017",
+      "residential|building|mfh|>2017",
+      "residential|building|sfh|<1920",
+      "residential|building|sfh|1920-1945",
+      "residential|building|sfh|1946-1960",
+      "residential|building|sfh|1961-1970",
+      "residential|building|sfh|1971-1980",
+      "residential|building|sfh|1981-1990",
+      "residential|building|sfh|1991-2000",
+      "residential|building|sfh|2001-2010",
+      "residential|building|sfh|2011-2017",
+      "residential|building|sfh|>2017"
+    ]
+  }
+}
