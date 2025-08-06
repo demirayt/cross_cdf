@@ -43,7 +43,7 @@ def ensure_pip(vpython: str):
 
 def main():
     # repo_url = "https://github.com/demirayt/cross_cdf.git"
-    # project_name = "cross_cdf"
+    project_name = "cross_cdf"
     venv_dir = "cross_cdf_env"
 
     # # Clone the repo
@@ -74,7 +74,7 @@ def main():
 
     # Print activation help
     print("\n✅ Setup complete.")
-    print(f"👉 Change directory to {project_name}: cd {project_name}")
+    # print(f"👉 Change directory to {project_name}: cd {project_name}")
     if is_windows:
         print(f"👉 To activate: {venv_dir}\\Scripts\\activate")
     else:
