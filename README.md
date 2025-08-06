@@ -2,6 +2,14 @@
 
 A Python package to validate CSV files against CDF metadata.
 
+## Install
+
+```bash
+git clone https://github.com/demirayt/cross_cdf.git
+cd cross_cdf
+python install_cross_cdf_venv.py 
+```
+
 ## Usage
 
 ```bash
